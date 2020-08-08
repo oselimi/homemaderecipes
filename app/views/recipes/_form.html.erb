@@ -1,3 +1,4 @@
+<%= render 'shared/errors', object: recipe %>
 <%= form_with model: recipe, local: true do |form| %>
     <ul>
         <li><%= form.label :title %></li>

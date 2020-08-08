@@ -1,3 +1,4 @@
+<%= render 'shared/errors', object: @user %>
 <%= form_with model: @user, local: true do |form| %>
     <ul>
         <li><%= form.label :first_name %></li>
