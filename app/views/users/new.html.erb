@@ -1,0 +1,17 @@
+<%= form_with model: @user, local: true do |form| %>
+    <ul>
+        <li><%= form.label :first_name %></li>
+        <li><%= form.text_field :first_name %></li>
+        <li><%= form.label :last_name %></li>
+        <li><%= form.text_field :last_name %></li>
+        <li><%= form.label :handle_name %></li>
+        <li><%= form.text_field :handle_name %></li>
+        <li><%= form.label :email%></li>
+        <li><%= form.email_field :email%></li>
+        <li><%= form.label :password %></li>
+        <li><%= form.password_field :password %></li>
+        <li><%= form.label :password_confirmation %></li>
+        <li><%= form.password_field :password_confirmation %></li>
+        <li><%= form.submit %></li>
+    </ul>
+<% end %>

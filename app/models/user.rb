@@ -19,6 +19,13 @@ class User < ApplicationRecord
     has_secure_password
     validates :password, presence: true, length: { minimum: MIN_LENGTH_PASSWORD }
 
+    def full_name
+        [first_name, last_name].join(" ")
+    end
+    
+    def username
+        "@" + handle_name
+    end
     private
     def downcase_email
         self.email = email.downcase
