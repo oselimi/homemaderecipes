@@ -1,0 +1,8 @@
+<h1>Recipes#index</h1>
+<% @recipes.each do |recipe| %>
+    <%= recipe.title %>
+    <%= recipe.description %>
+    <%= link_to "Show", recipe_path(recipe) %>
+    <%= link_to "Edit", edit_recipe_path(recipe) %>
+    <%= link_to "Delete", recipe_path(recipe), method: :delete, data: { confirm: "Are you sure" } %>
+<% end %>
