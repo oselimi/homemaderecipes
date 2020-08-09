@@ -4,6 +4,7 @@ class User < ApplicationRecord
 
     has_many :recipes, dependent: :destroy
     has_many :instructions, dependent: :destroy
+    has_many :ingredients, dependent: :destroy
 
     MAX_LENGTH_HANDLE_NAME = 30
     MAX_LENGTH_FIRST_NAME = 30

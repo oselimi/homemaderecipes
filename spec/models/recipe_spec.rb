@@ -9,6 +9,7 @@ RSpec.describe Recipe, type: :model do
   describe "associations" do
     it { should belong_to(:user) }
     it { should have_many(:instructions).dependent(:destroy) }
+    it { should have_many(:ingredients).dependent(:destroy) }
   end
 
   describe "validations" do
