@@ -53,10 +53,10 @@ RSpec.describe "Recipes", type: :request do
 
   describe "GET /edit" do
     before { get "/recipes/#{recipe.id}/edit" }
-    
+
     it "edit an recipes" do
       expect(response).to have_http_status(:success)
-      
+
       title = "edit title"
       description = "edit description"
 
@@ -72,7 +72,7 @@ RSpec.describe "Recipes", type: :request do
       patch "/recipes/#{recipe.id}", patch_params
       expect(response).to redirect_to(assigns(:recipe))
       expect(response).to have_http_status(:found)
-      
+
       follow_redirect!
 
       expect(response.body).to include(recipe.title)
@@ -82,10 +82,10 @@ RSpec.describe "Recipes", type: :request do
 
   describe "GET /destroy" do
     before { delete "/recipes/#{recipe.id}" }
-    
+
     it "edit an recipes" do
       expect(response).to have_http_status(302)
-      
+
       expect(response).to redirect_to(root_path)
     end
   end

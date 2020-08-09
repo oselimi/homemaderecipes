@@ -1,0 +1,9 @@
+<%= form_with scope: :session, url: login_path, local: true do |f| %>
+    <ul>
+        <li><%= f.label :email%></li>
+        <li><%= f.email_field :email%></li>
+        <li><%= f.label :password %></li>
+        <li><%= f.password_field :password %></li>
+        <li><%= f.submit%></li>
+    </ul>
+<% end %>
