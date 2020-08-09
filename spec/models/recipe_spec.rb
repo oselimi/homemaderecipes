@@ -3,11 +3,12 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   let(:user) { create(:user) }
   let(:recipe) { create(:recipe, user: user) }
-  
+
   before { recipe }
 
   describe "associations" do
     it { should belong_to(:user) }
+    it { should have_many(:instructions).dependent(:destroy) }
   end
 
   describe "validations" do

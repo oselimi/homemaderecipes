@@ -9,7 +9,7 @@ RSpec.describe "Recipes", type: :request do
 
     it "create an recipes" do
       expect(response).to have_http_status(:success)
-      
+
       title = "First title"
       description = "Description of recipes"
 
@@ -38,8 +38,8 @@ RSpec.describe "Recipes", type: :request do
       post_params = {
         params: {
           recipe: {
-            title: "",
-            description: ""
+            title: " ",
+            description: " "
           }
         }
       }

@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :instruction do
-    step { "First step" }
-    body { "Add instruction of your recipe" }
+    sequence(:step) {|n| "First step#{n}" }
+    sequence(:body) {|n| "Add instruction of your recipe#{n}" }
     recipe { nil }
     user { nil }
   end
