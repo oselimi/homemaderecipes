@@ -1,0 +1,7 @@
+<%= form_with model: [recipe, ingredient], local: true do |form| %>
+    <ul>
+        <li><%= form.label :amount %></li>
+        <li><%= form.text_field :amount %></li>
+        <li><%= form.submit %></li>
+    </ul>
+<% end %>

@@ -47,7 +47,7 @@ RSpec.describe "Instructions", type: :request do
 
             step = "1 step update"
             body = "commented how to cooking this recipe update"
-            
+
             patch_params = {
                 params: {
                     instruction: {
