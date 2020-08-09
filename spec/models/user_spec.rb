@@ -7,6 +7,7 @@ RSpec.describe User, type: :model do
 
   describe "associations" do
     it { should have_many(:recipes).dependent(:destroy) }
+    it { should have_many(:instructions).dependent(:destroy) }
   end
 
   describe "validations" do
