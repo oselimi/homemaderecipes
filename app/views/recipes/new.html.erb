@@ -1,2 +1,10 @@
 <%= link_to "Back", root_path %>
-<%= render 'form', recipe: @recipe %>
+<%= form_with model: @recipe, local: true do |t| %>
+    <ul>
+        <li><%= t.label :title %></li>
+        <li><%= t.text_field :title %></li>
+        <li><%= t.label :description %></li>
+        <li><%= t.text_area :description %></li>
+        <li><%= t.submit %></li>
+    </ul>
+<% end %>

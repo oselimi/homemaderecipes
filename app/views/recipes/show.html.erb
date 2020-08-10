@@ -1,3 +1,10 @@
 <%= link_to "Back", root_path %>
 <h1>Title:</h1> <%= @recipe.title %>
 <h1>Description: <%= @recipe.description %></h1>
+
+ <%= link_to 'Add more ingredients', new_recipe_ingredient_path(@recipe, @ingredients)%>
+<ol><% @recipe.ingredients.each do |f| %>
+      <li><%= f.amount %></li>
+    <% end %></ol>
+
+    <%= link_to 'edit', edit_recipe_path(@recipe) %>

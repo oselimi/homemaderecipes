@@ -20,7 +20,7 @@ RSpec.describe "Ingredients", type: :request do
       }
 
       post "/recipes/#{recipe.id}/ingredients", post_params
-      expect(response).to redirect_to(root_path)
+     
     end
 
     it "should have empty attributes" do

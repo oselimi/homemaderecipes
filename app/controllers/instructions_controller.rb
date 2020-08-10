@@ -8,7 +8,7 @@ class InstructionsController < ApplicationController
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = @recipe.instructions.build(instruction_params)
         @instruction.user = User.first
-
+        
         if @instruction.save
             redirect_to root_path
         else
