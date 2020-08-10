@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= render 'shared/flash'%>
-    <%= yield %>
+    <section class="section">
+      <%= render 'layouts/navbar' %>
+      <%= render 'shared/flash'%>
+      <%= yield %>
+    </section>
   </body>
 </html>
