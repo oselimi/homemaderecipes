@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'recipes#index'
-  get 'myrecipe', to: "recipes#myrecipe"
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'

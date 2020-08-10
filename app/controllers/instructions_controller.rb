@@ -7,10 +7,10 @@ class InstructionsController < ApplicationController
     def create
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = @recipe.instructions.build(instruction_params)
-        @instruction.user = User.first
+        @instruction.user = current_user
         
         if @instruction.save
-            redirect_to root_path
+            redirect_to @instruction.recipe
         else
             render :new
         end

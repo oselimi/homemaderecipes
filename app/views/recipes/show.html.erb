@@ -6,5 +6,13 @@
 <ol><% @recipe.ingredients.each do |f| %>
       <li><%= f.amount %></li>
     <% end %></ol>
-
+<%= link_to 'Add more instuctions', new_recipe_instruction_path(@recipe, @instruction)%>
+<% @recipe.instructions.each do |i| %>
+  <ol><li><%= i.step %></li></ol>
+<ul>
+  <li><%= i.body %></li>
+</ul>
+<% end %>
+    <%= link_to "back", root_path %>
     <%= link_to 'edit', edit_recipe_path(@recipe) %>
+    <%= link_to 'delete', recipe_path(@recipe), method: :delete %>
