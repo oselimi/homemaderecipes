@@ -1,9 +1,25 @@
 <%= form_with model: [recipe, instruction], local: true do |form| %>
-    <ul>
-        <li><%= form.label :step %></li>
-        <li><%= form.text_field :step %></li>
-        <li><%= form.label :body %></li>
-        <li><%= form.text_area :body %></li>
-        <li><%= form.submit %></li>
-    </ul>
+<div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content is-size-3">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.text_field :step , class: "input", placeholder: "Add Step" %>
+                </p>
+                </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <%= form.text_area :body , class: "textarea", placeholder: "Add Instuctions" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <%= form.submit "Add", class: "button is-caffe" %>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

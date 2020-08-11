@@ -1,18 +1,42 @@
-<%= link_to "Back", root_path %>
-<h1>Title:</h1> <%= @recipe.title %>
-<h1>Description: <%= @recipe.description %></h1>
-
- <%= link_to 'Add more ingredients', new_recipe_ingredient_path(@recipe, @ingredients)%>
-<ol><% @recipe.ingredients.each do |f| %>
-      <li><%= f.amount %></li>
-    <% end %></ol>
-<%= link_to 'Add more instuctions', new_recipe_instruction_path(@recipe, @instruction)%>
-<% @recipe.instructions.each do |i| %>
-  <ol><li><%= i.step %></li></ol>
-<ul>
-  <li><%= i.body %></li>
-</ul>
+<div class="tile is-ancestor">
+  <div class="tile is-vertical is-8">
+    <div class="tile">
+      <div class="tile is-parent">
+        <article class="tile is-child notification is-caffe-light">
+          <p class="title"><%= @recipe.title %></p>
+            <p class="text"><%= @recipe.description %></p>
+        </article>
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child notification is-caffe">
+        <p class="title">Instruction</p>
+        <% if logged_in? && current_user?(@recipe.user) %>
+          <p class="subtitle"> <%= link_to 'Add more instructions', new_recipe_instruction_path(@recipe, @instruction)%></p>
+        <% end %>
+        <div class="content">
+            <%= render "instructions/instruction", recipe: @recipe, instruction: @instruction %>
+        </div>
+      </article>
+    </div>
+  </div>
+  <div class="tile is-parent">
+    <article class="tile is-child notification is-caffe-light">
+      <div class="content">
+        <p class="title">Ingredients</p>
+        <% if logged_in? && current_user?(@recipe.user) %>
+          <p class="subtitle"> <%= link_to 'Add more ingredients', new_recipe_ingredient_path(@recipe, @ingredient)%></p>
+        <% end %>
+        <div class="content">
+           <%= render 'ingredients/ingredient', recipe: @recipe, ingredient: @ingredient%>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+  <%= link_to "Back", root_path, class:"card-footer-item is-caffe"%>
+<% if logged_in? && current_user?(@recipe.user) %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe), class:"card-footer-item is-caffe-light" %>
+  <%= link_to 'Delete', recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" },
+                        class:"card-footer-item is-caffe" %>
 <% end %>
-    <%= link_to "back", root_path %>
-    <%= link_to 'edit', edit_recipe_path(@recipe) %>
-    <%= link_to 'delete', recipe_path(@recipe), method: :delete %>

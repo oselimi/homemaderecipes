@@ -1,2 +1,1 @@
-<%= link_to "Back", root_path %>
-<%= render 'form', recipe: @recipe %>
+<%= render 'form', recipe: @recipe, button: "Edit", cancel: recipe_path(@recipe) %>

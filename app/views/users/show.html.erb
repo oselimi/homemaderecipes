@@ -1,2 +1,24 @@
-<h1>welcome  <%= @user.username %></h1>
-<p>Full name: <%= @user.full_name%></p>
+
+<div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content is-size-2">
+          <div class="card">
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <strong><i class="fa fa-user is-caffe-light"></i></strong>
+                  </figure>
+                </div>
+                <div class="media-content">
+                    <p class="title is-4"><%= @user.full_name%></p>
+                    <p class="subtitle is-6"><%= @user.username %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

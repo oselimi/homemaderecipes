@@ -1,0 +1,8 @@
+<ol>
+    <% recipe.instructions.each do |i| %>
+    
+            <strong><li><%= i.step %></li></strong>
+            <p><%= i.body %></p>
+            <hr> 
+    <% end %>
+<ol>

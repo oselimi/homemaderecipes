@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="columns">
+    <div class="column is-6 is-offset-3">
+        <div class="card">
+            <header class="card-header">
+                <p class="card-header-title is-caffe-light">
+                    <%= recipe.title %>
+                </p>
+            </header>
+            <div class="card-content">
+                <div class="content text-caffe">
+                    <%= recipe.description %>
+                </div>
+            </div>
+            <footer class="card-footer">
+                <%= link_to 'Show', recipe_path(recipe), class:"card-footer-item is-caffe" %>
+        <% if logged_in? && current_user?(recipe.user) %>
+                <%= link_to 'Edit', edit_recipe_path(recipe), class:"card-footer-item is-caffe-light" %>
+                <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: "Are you sure?" },
+                                      class:"card-footer-item is-caffe" %>
+            </footer>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>

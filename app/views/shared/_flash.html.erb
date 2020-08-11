@@ -1,3 +1,14 @@
 <% flash.each do |name, msg| %>
-    <div class="aler<%= name %> "><%= msg %></div>
+    <div class="container">
+        <div class="columns is-multiline">
+        <div class="column is-6 is-offset-3">
+            <div class="content">
+                <div class="notification has-text-centered is-<%= name %>">
+                    <%= msg %>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

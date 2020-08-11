@@ -1,7 +1,20 @@
 <%= form_with model: [recipe, ingredient], local: true do |form| %>
-    <ul>
-        <li><%= form.label :amount %></li>
-        <li><%= form.text_field :amount %></li>
-        <li><%= form.submit %></li>
-    </ul>
+<div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content is-size-3">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.text_field :amount , class: "input", placeholder: "Amount" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control">
+                    <%= form.submit "Add", class: "button is-caffe" %>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

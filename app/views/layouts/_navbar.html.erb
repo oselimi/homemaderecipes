@@ -3,12 +3,6 @@
       <%= link_to root_path do %>
         <h1 class="title">Homemade Recipe</h1>
       <% end %>
-      
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
   </div>
     <div class="navbar-end">
       <div class="navbar-item">
@@ -21,10 +15,10 @@
             <strong><i class="fa fa-times-circle btn"></i></strong>
           <% end %>
         <% else %>
-          <%= link_to login_path, class: "button is-primary" do %>
+          <%= link_to login_path, class: "button is-caffe-light" do %>
             <strong>Login</strong>
           <% end %>
-          <%= link_to signup_path, class: "button is-primary" do %>
+          <%= link_to signup_path, class: "button is-caffe" do %>
             <strong>Signin</strong>
           <% end %>
         <% end %>

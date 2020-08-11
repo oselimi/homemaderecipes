@@ -1,0 +1,7 @@
+<ul style="list-style: none;">
+    <li><%= f.hidden_field :user_id, value: current_user.id %></li>
+    <li><%= f.text_field :amount, class:"input", placeholder: "Add Ingredients" %></li>
+    <li><%= f.check_box :_destroy %>
+        <%= f.label :_destroy, "remove"%>
+    </li>
+</ul>

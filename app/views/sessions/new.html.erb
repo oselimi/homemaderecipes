@@ -1,9 +1,25 @@
 <%= form_with scope: :session, url: login_path, local: true do |f| %>
-    <ul>
-        <li><%= f.label :email%></li>
-        <li><%= f.email_field :email%></li>
-        <li><%= f.label :password %></li>
-        <li><%= f.password_field :password %></li>
-        <li><%= f.submit%></li>
-    </ul>
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content is-size-3">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= f.email_field :email, class: "input", placeholder: "Email" %>
+                </p>
+                </div>
+                <div class="field">
+                <p class="control has-icons-left">
+                    <%= f.password_field :password , class: "input", placeholder: "Password" %>
+                </p>
+                </div>
+                <div class="field">
+                <p class="control">
+                    <%= f.submit "Login", class: "button is-caffe" %>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>

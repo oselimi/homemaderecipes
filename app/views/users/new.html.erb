@@ -1,18 +1,42 @@
+<h1 class="title has-text-centered">Sign Up</h1>
 <%= render 'shared/errors', object: @user %>
 <%= form_with model: @user, local: true do |form| %>
-    <ul>
-        <li><%= form.label :first_name %></li>
-        <li><%= form.text_field :first_name %></li>
-        <li><%= form.label :last_name %></li>
-        <li><%= form.text_field :last_name %></li>
-        <li><%= form.label :handle_name %></li>
-        <li><%= form.text_field :handle_name %></li>
-        <li><%= form.label :email%></li>
-        <li><%= form.email_field :email%></li>
-        <li><%= form.label :password %></li>
-        <li><%= form.password_field :password %></li>
-        <li><%= form.label :password_confirmation %></li>
-        <li><%= form.password_field :password_confirmation %></li>
-        <li><%= form.submit %></li>
-    </ul>
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content is-size-3">
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.text_field :first_name, class: "input", placeholder: "First Name" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.text_field :last_name, class: "input", placeholder: "Last Name" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.text_field :handle_name, class: "input", placeholder: "Handle Name" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left has-icons-right">
+                    <%= form.email_field :email, class: "input", placeholder: "Email" %>
+                </p>
+            </div>
+            <div class="field">
+                <p class="control has-icons-left">
+                    <%= form.password_field :password , class: "input", placeholder: "Password" %>
+                </p>
+            </div>
+                <div class="field">
+                <p class="control">
+                    <%= form.submit "Login", class: "button is-caffe" %>
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
