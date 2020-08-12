@@ -6,7 +6,10 @@ RSpec.describe "Instructions", type: :request do
     let(:instruction) { create(:instruction, user: user, recipe: recipe) }
 
     describe "GET /new" do
-        before { get "/recipes/#{recipe.id}/instructions/new" }
+        before do
+            login_as(user)
+            get "/recipes/#{recipe.id}/instructions/new" 
+        end
 
         it "should be valid" do
             expect(response).to have_http_status(:success)
@@ -21,26 +24,29 @@ RSpec.describe "Instructions", type: :request do
             }
 
             post "/recipes/#{recipe.id}/instructions", post_params
-            expect(response).to redirect_to(root_path)
+            expect(response).to redirect_to(instruction.recipe)
         end
-    end
+    
 
-    it "should be empty attributes" do
-        post_params = {
-            params: {
-                instruction: {
-                    step: "",
-                    body: ""
+        it "should be empty attributes" do
+            post_params = {
+                params: {
+                    instruction: {
+                        step: "",
+                        body: ""
+                    }
                 }
             }
-        }
 
-        post "/recipes/#{recipe.id}/instructions", post_params
-        expect(response).to render_template(:new)
+            post "/recipes/#{recipe.id}/instructions", post_params
+            expect(response).to render_template(:new)
+        end
     end
-
     describe "GET /edit" do
-        before { get "/recipes/#{recipe.id}/instructions/#{instruction.id}/edit" }
+        before do
+            login_as(user)
+            get "/recipes/#{recipe.id}/instructions/#{instruction.id}/edit"
+        end
 
         it "should be valid" do
             expect(response).to have_http_status(:success)
@@ -85,7 +91,10 @@ RSpec.describe "Instructions", type: :request do
     end
 
     describe "GET /destroy" do
-        before { delete "/recipes/#{recipe.id}/instructions/#{instruction.id}" }
+        before do
+            login_as(user)
+            delete "/recipes/#{recipe.id}/instructions/#{instruction.id}"
+        end
         it "should be deleted instructions" do
             expect(response).to have_http_status(302)
             expect(response).to redirect_to(root_path)

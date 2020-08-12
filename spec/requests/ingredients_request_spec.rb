@@ -6,7 +6,10 @@ RSpec.describe "Ingredients", type: :request do
   let(:ingredient) { create(:ingredient, user: user, recipe: recipe) }
 
   describe "GET /new" do
-    before { get "/recipes/#{recipe.id}/ingredients/new" }
+    before do
+      login_as(user)
+      get "/recipes/#{recipe.id}/ingredients/new"
+    end
 
     it "create a ingredient and returns http success" do
       expect(response).to have_http_status(:success)
@@ -38,7 +41,10 @@ RSpec.describe "Ingredients", type: :request do
   end
 
   describe "GET /edit" do
-    before { get "/recipes/#{recipe.id}/ingredients/#{ingredient.id}/edit" }
+    before do
+      login_as(user)
+      get "/recipes/#{recipe.id}/ingredients/#{ingredient.id}/edit" 
+    end
 
     it "should be correct editing" do
       expect(response).to have_http_status(:ok)
@@ -64,7 +70,10 @@ RSpec.describe "Ingredients", type: :request do
   end
 
   describe "GET /destroy" do
-    before { delete "/recipes/#{recipe.id}/ingredients/#{ingredient.id}" }
+    before do
+      login_as(user)
+      delete "/recipes/#{recipe.id}/ingredients/#{ingredient.id}" 
+    end
 
     it "should be removed" do
       expect(response).to have_http_status(302)

@@ -10,6 +10,8 @@ RSpec.describe Recipe, type: :model do
     it { should belong_to(:user) }
     it { should have_many(:instructions).dependent(:destroy) }
     it { should have_many(:ingredients).dependent(:destroy) }
+    it { should accept_nested_attributes_for(:instructions).allow_destroy(true) }
+    it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
   end
 
   describe "validations" do

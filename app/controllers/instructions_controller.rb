@@ -1,4 +1,5 @@
 class InstructionsController < ApplicationController
+    before_action :logged_in_user
     def new
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = @recipe.instructions.build

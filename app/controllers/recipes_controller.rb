@@ -1,12 +1,15 @@
 class RecipesController < ApplicationController
+  before_action :logged_in_user, except: [:index, :show]
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
   def index
     @recipes = Recipe.all
   end
 
   def new
     @recipe = Recipe.new
-    2.times { @recipe.ingredients.build } 
-    2.times { @recipe.instructions.build }
+    6.times { @recipe.ingredients.build } 
+    4.times { @recipe.instructions.build }
   end
 
   def create
@@ -20,15 +23,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -37,8 +37,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id]).destroy
-    redirect_to root_path
+    if @recipe.destroy
+      flash[:danger] = "Recipe deleted!"
+      redirect_to root_path
+    end
   end
 
   private
@@ -46,5 +48,16 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:title, :description, ingredients_attributes: [:id, :amount, :user_id, :_destroy],
                                    instructions_attributes: [:id, :step, :body, :user_id,  :_destroy])
+  end
+
+  def set_params
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def require_same_user
+    unless current_user?(@recipe.user)
+      flash[:danger] = "You must be current user!"
+      redirect_to root_path
+    end
   end
 end
