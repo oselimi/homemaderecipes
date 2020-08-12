@@ -11,7 +11,7 @@ class Recipe < ApplicationRecord
                                 allow_destroy: true
 
   MAX_LENGTH_OF_TITLE = 40
-  MAX_LENGTH_OF_DESCRITPION = 200
+  MAX_LENGTH_OF_DESCRITPION = 800
   validates :title, presence: true, length: { maximum: MAX_LENGTH_OF_TITLE }
   validates :description, presence: true, length: { maximum: MAX_LENGTH_OF_DESCRITPION }
 end

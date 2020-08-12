@@ -2,16 +2,26 @@
   <div class="columns">
     <div class="column is-6 is-offset-3">
         <div class="card">
-            <header class="card-header">
-                <p class="card-header-title is-caffe-light">
-                    <%= recipe.title %>
-                </p>
-            </header>
-            <div class="card-content">
-                <div class="content text-caffe">
-                    <%= recipe.description %>
+            <%= link_to recipe_path(recipe) do %>
+                <header class="card-header">
+                    <p class="card-header-title is-caffe-light">
+                        <%= recipe.title %>
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content text-caffe">
+                        <%= recipe.description %>
+                    </div>
                 </div>
-            </div>
+            <% end %>
+                <footer class="card-footer">
+                <p class="card-header-title is-caffe-light">
+                   <%= link_to user_path(recipe.user), class: "is-caffe-light" do %>
+                        by: <%= recipe.user.handle_name %>
+                    <% end %>
+                </p>
+                <p class="card-header-left is-caffe-light"> <%= time_ago_in_words(recipe.created_at)%></p>
+            </footer>
             <footer class="card-footer">
                 <%= link_to 'Show', recipe_path(recipe), class:"card-footer-item is-caffe" %>
         <% if logged_in? && current_user?(recipe.user) %>

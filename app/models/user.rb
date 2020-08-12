@@ -28,7 +28,7 @@ class User < ApplicationRecord
     end
     
     def username
-        "@" + handle_name
+        ["@" + handle_name].join(" ")
     end
 
     private
