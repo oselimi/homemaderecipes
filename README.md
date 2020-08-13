@@ -24,9 +24,7 @@ with our clients have just three steps:
 3. Share with us
 
 **We expect** 
-###### Homemad Recipe
-to be one of the more important app in kitchen world
-because it's very easy for using, fast and it's free for all our clients.
+###### Homemad Recipeto be one of the more important app in kitchen world because it's very easy for using, fast and it's free for every person.
 
 ***Any questions, please refer to our email admin@oselimi94team.mk***
 
