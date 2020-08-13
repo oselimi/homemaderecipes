@@ -1,24 +1,32 @@
-# README
+# Homemade Recipe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Oselimi94 team presented web application for recipe.
+If you want to using our web app you must have: 
 
-Things you may want to cover:
+* Install Ruby (version < 3.5)
 
-* Ruby version
+* Rails framework (suggest last version)
 
-* System dependencies
+* Database install (only "sqlite3")
 
-* Configuration
+* Yarn installed
 
-* Database creation
+* If using local server important to have is NODE.js
 
-* Database initialization
+* Clone your repository, ie. git clone https://github.com/<your-username>/homemaderecipes.git
 
-* How to run the test suite
+## Concept of Homemade Recipe
+Homemade Recipe is free application and everyone if have recipe and want to share
+with our clients have just three steps:
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Create Account in Homemade Recipe
+2. Write your recipe including instructions and ingredients all of them you write in one page
+3. Share with us
 
-* Deployment instructions
+**We expect** 
+###### Homemad Recipe
+to be one of the more important app in kitchen world
+because it's very easy for using, fast and it's free for all our clients.
 
-* ...
+***Any questions, please refer to our email admin@oselimi94team.mk***
+
