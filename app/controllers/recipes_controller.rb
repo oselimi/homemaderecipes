@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
   before_action :set_params, only: [:show, :edit, :update, :destroy]
   before_action :require_same_user, only: [:edit, :update, :destroy]
+
   def index
     @recipes = Recipe.all
   end

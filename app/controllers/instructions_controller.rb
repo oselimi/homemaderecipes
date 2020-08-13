@@ -3,13 +3,13 @@ class InstructionsController < ApplicationController
     def new
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = @recipe.instructions.build
-    end 
-    
+    end
+
     def create
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = @recipe.instructions.build(instruction_params)
         @instruction.user = current_user
-        
+
         if @instruction.save
             redirect_to @instruction.recipe
         else
@@ -17,7 +17,7 @@ class InstructionsController < ApplicationController
         end
     end
 
-    def show 
+    def show
         @recipe = Recipe.find(params[:recipe_id])
         @instruction = Instruction.find(params[:id])
     end

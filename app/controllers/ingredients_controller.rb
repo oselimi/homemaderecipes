@@ -4,12 +4,12 @@ class IngredientsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build
   end
-  
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build(ingredient_params)
     @ingredient.user = current_user
-    
+
     if @ingredient.save
       redirect_to @ingredient.recipe
     else

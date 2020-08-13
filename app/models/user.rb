@@ -26,7 +26,7 @@ class User < ApplicationRecord
     def full_name
         [first_name, last_name].join(" ")
     end
-    
+
     def username
         ["@" + handle_name].join(" ")
     end
