@@ -8,12 +8,12 @@ RSpec.describe "Instructions", type: :request do
     describe "GET /new" do
         before do
             login_as(user)
-            get "/recipes/#{recipe.id}/instructions/new" 
+            get "/recipes/#{recipe.id}/instructions/new"
         end
 
         it "should be valid" do
             expect(response).to have_http_status(:success)
-        
+
             post_params = {
                 params: {
                     instruction: {
@@ -26,7 +26,7 @@ RSpec.describe "Instructions", type: :request do
             post "/recipes/#{recipe.id}/instructions", post_params
             expect(response).to redirect_to(instruction.recipe)
         end
-    
+
 
         it "should be empty attributes" do
             post_params = {

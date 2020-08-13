@@ -12,6 +12,7 @@ RSpec.describe "Recipes", type: :request do
       before do 
         get "/recipes/new"
       end
+
       it "should be logged in with other user" do
         post_params = {
           params: {
@@ -68,6 +69,7 @@ RSpec.describe "Recipes", type: :request do
       end
 
       it "should be edited(recipe)" do
+
         title = "edit title"
         description = "edit description"
         step = "Edit step"
@@ -98,9 +100,9 @@ RSpec.describe "Recipes", type: :request do
         expect(response.body).to include(instruction.body)
         expect(response.body).to include(ingredient.amount)
       end
-      
+
       it "should be not edited(recipe)" do
-      
+
         title = "edit title"
         description = "edit description"
         step = "Edit step"
@@ -128,7 +130,7 @@ RSpec.describe "Recipes", type: :request do
       end
 
       it "should be recipe edited but remove instruction" do
-      
+
         title = "edit title"
         description = "edit description"
         step = "Edit step"
@@ -157,7 +159,7 @@ RSpec.describe "Recipes", type: :request do
       end
 
       it "should be recipe edited but remove ingredient" do
-      
+
         title = "edit title"
         description = "edit description"
         step = "Edit step"

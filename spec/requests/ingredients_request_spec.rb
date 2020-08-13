@@ -23,14 +23,14 @@ RSpec.describe "Ingredients", type: :request do
       }
 
       post "/recipes/#{recipe.id}/ingredients", post_params
-     
+
     end
 
     it "should have empty attributes" do
       post_params = {
         params: {
           ingredient: {
-            amount: " "
+            amount: ""
           }
         }
       }
