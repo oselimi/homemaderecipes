@@ -33,7 +33,7 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    if @ngredient.destroy
+    if @ingredient.destroy
       redirect_to root_path
     end
   end
