@@ -9,7 +9,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    6.times { @recipe.ingredients.build } 
+    6.times { @recipe.ingredients.build }
     4.times { @recipe.instructions.build }
   end
 
@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
 
   def destroy
     if @recipe.destroy
-      flash[:danger] = "Recipe deleted!"
+      flash[:danger] = 'Recipe deleted!'
       redirect_to root_path
     end
   end
@@ -48,7 +48,7 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:title, :description, ingredients_attributes: [:id, :amount, :user_id, :_destroy],
-                                   instructions_attributes: [:id, :step, :body, :user_id,  :_destroy])
+                                   instructions_attributes: [:id, :step, :body, :user_id, :_destroy])
   end
 
   def set_params
@@ -57,7 +57,7 @@ class RecipesController < ApplicationController
 
   def require_same_user
     unless current_user?(@recipe.user)
-      flash[:danger] = "You must be current user!"
+      flash[:danger] = 'You must be current user!'
       redirect_to root_path
     end
   end

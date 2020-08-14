@@ -1,8 +1,8 @@
 <ul style="list-style: none;">
-    <li><%= n.hidden_field :user_id, value: current_user.id %></li>
-    <li><%= n.text_field :step, class:"input", placeholder: "Add Title of Instruction" %></li>
-    <li><%= n.text_area :body,  class:"input", placeholder: "Add Body of Instruction" %></li>
-    <li><%= n.check_box :_destroy %>
-        <%= n.label :_destroy, "remove"%>
-    </li>
+  <li><%= n.hidden_field :user_id, value: current_user.id %></li>
+  <li><%= n.text_field :step, class:"input", placeholder: "Add Title of Instruction" %></li>
+  <li><%= n.text_area :body,  class:"input", placeholder: "Add Body of Instruction" %></li>
+  <li><%= n.check_box :_destroy %>
+      <%= n.label :_destroy, "remove"%>
+  </li>
 </ul>

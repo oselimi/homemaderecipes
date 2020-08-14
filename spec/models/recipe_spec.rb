@@ -6,7 +6,7 @@ RSpec.describe Recipe, type: :model do
 
   before { recipe }
 
-  describe "associations" do
+  describe 'associations' do
     it { should belong_to(:user) }
     it { should have_many(:instructions).dependent(:destroy) }
     it { should have_many(:ingredients).dependent(:destroy) }
@@ -14,7 +14,7 @@ RSpec.describe Recipe, type: :model do
     it { should accept_nested_attributes_for(:ingredients).allow_destroy(true) }
   end
 
-  describe "validations" do
+  describe 'validations' do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:description) }
     it { should validate_length_of(:title).is_at_most(Recipe::MAX_LENGTH_OF_TITLE) }

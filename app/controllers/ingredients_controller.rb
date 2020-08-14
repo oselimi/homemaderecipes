@@ -1,5 +1,6 @@
 class IngredientsController < ApplicationController
   before_action :logged_in_user
+  before_action :set_params, only: [:show, :edit, :update, :destroy]
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build
@@ -18,19 +19,12 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = Ingredient.find(params[:id])
-
     if @ingredient.update(ingredient_params)
       redirect_to recipe_ingredient_path(@recipe, @ingredient)
     else
@@ -39,14 +33,19 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
-    @ingredient = Ingredient.find(params[:id]).destroy
-    redirect_to root_path
+    if @ngredient.destroy
+      redirect_to root_path
+    end
   end
 
   private
 
   def ingredient_params
     params.require(:ingredient).permit(:amount)
+  end
+
+  def set_params
+    @recipe = Recipe.find(params[:recipe_id])
+    @ingredient = Ingredient.find(params[:id])
   end
 end

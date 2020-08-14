@@ -1,19 +1,19 @@
 <% if object.errors.any? %>
-    <div class="container">
-        <div class="columns is-multiline">
-        <div class="column is-6 is-offset-3">
-            <div class="content">
-                <div class="notification is-danger">
-                    You have: <%= pluralize(object.errors.count, "error") %>
-                <% end %>
-                <% object.errors.full_messages.each do |msg| %>
-                    <ul>
-                        <li><%= msg %></li>
-                    </ul>
-                <% end %>
-            </div>
+  <div class="container">
+    <div class="columns is-multiline">
+      <div class="column is-6 is-offset-3">
+        <div class="content">
+          <div class="notification is-danger">
+            You have: <%= pluralize(object.errors.count, "error") %>
+            <% end %>
+            <% object.errors.full_messages.each do |msg| %>
+              <ul>
+                <li><%= msg %></li>
+              </ul>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>  
 

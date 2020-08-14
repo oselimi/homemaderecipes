@@ -2,43 +2,43 @@
 <%= form_with model: recipe, local: true do |form| %>
   <div class="tile is-ancestor">
     <div class="tile is-vertical is-8">
-        <div class="tile">
+      <div class="tile">
         <div class="tile is-parent">
-            <article class="tile is-child notification is-caffe-light">
+          <article class="tile is-child notification is-caffe-light">
             <h1 class="title">Add Recipe</h1>
             <ul style="list-style: none;">
-                <li><%= form.text_field :title, class:"input", placeholder: "Add Title of Recipe" %></li>
-                <li><%= form.text_area :description, class:"input", rows:"30", placeholder: "Add Description of Recipe"  %></li>
+              <li><%= form.text_field :title, class:"input", placeholder: "Add Title of Recipe" %></li>
+              <li><%= form.text_area :description, class:"input", rows:"30", placeholder: "Add Description of Recipe"  %></li>
             </ul>
-            </article>
+          </article>
         </div>
-        </div>
-        <div class="tile is-parent">
+      </div>
+      <div class="tile is-parent">
         <article class="tile is-child notification is-caffe">
-            <p class="title">Add Instruction</p>
-            <div class="content">
+          <p class="title">Add Instruction</p>
+          <div class="content">
             <%= form.fields_for :instructions do |builder| %>
-                <% render 'instructions/nested_form', n: builder %>
+              <% render 'instructions/nested_form', n: builder %>
             <% end %>
-            </div>
+          </div>
         </article>
-        </div>
+      </div>
     </div>
     <div class="tile is-parent">
-        <article class="tile is-child notification is-caffe-light">
+      <article class="tile is-child notification is-caffe-light">
         <div class="content">
-            <p class="title">Add Ingredients</p>
-            <div class="content">
-                <%= form.fields_for :ingredients do |builder| %>
-                    <%= render 'ingredients/nested_form', f: builder%>
-                <% end %>
-            </div>
+          <p class="title">Add Ingredients</p>
+          <div class="content">
+            <%= form.fields_for :ingredients do |builder| %>
+              <%= render 'ingredients/nested_form', f: builder%>
+            <% end %>
+          </div>
         </div>
-        </article>
+      </article>
     </div>
   </div>
-<footer class="card-footer">
+  <footer class="card-footer">
     <%= form.submit button,  class:"card-footer-item is-caffe-light" %>
     <%= link_to 'Cancel', cancel ,class:"card-footer-item is-caffe" %>
-</footer>
+  </footer>
 <% end %>
