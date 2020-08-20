@@ -2,6 +2,10 @@
   <% recipe.instructions.each do |i| %>
     <strong><li><%= i.step %></li></strong>
     <p><%= i.body %></p>
+    <% if logged_in? && current_user?(i.user)%>
+      <%= link_to "edit", edit_recipe_ingredient_url(recipe, i)%>
+      <%= link_to "remove", [recipe, i], method: :delete %>
+    <% end %>
     <hr> 
   <% end %>
 <ol>

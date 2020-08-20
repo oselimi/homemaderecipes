@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
   before_action :logged_in_user
   before_action :set_params, only: [:show, :edit, :update, :destroy]
+  before_action :require_same_user, except: :show
   def new
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = @recipe.ingredients.build
@@ -26,7 +27,7 @@ class IngredientsController < ApplicationController
 
   def update
     if @ingredient.update(ingredient_params)
-      redirect_to recipe_ingredient_path(@recipe, @ingredient)
+      redirect_to recipe_path(@recipe, @ingredient)
     else
       render :new
     end
@@ -34,7 +35,7 @@ class IngredientsController < ApplicationController
 
   def destroy
     if @ingredient.destroy
-      redirect_to root_path
+      redirect_to recipe_path(@recipe, @ingredient)
     end
   end
 
@@ -47,5 +48,12 @@ class IngredientsController < ApplicationController
   def set_params
     @recipe = Recipe.find(params[:recipe_id])
     @ingredient = Ingredient.find(params[:id])
+  end
+
+  def require_same_user
+    unless current_user?(@ingredient.user)
+      flash[:danger] = 'You must be current user!'
+      redirect_to root_path
+    end
   end
 end

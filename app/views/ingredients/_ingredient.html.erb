@@ -1,6 +1,10 @@
 <ul>
   <% recipe.ingredients.each do |f| %>
     <li><%= f.amount %></li>
+    <% if logged_in? && current_user?(f.user) %>  
+      <%= link_to "edit", edit_recipe_ingredient_url(recipe, f)%>
+      <%= link_to "remove", [recipe, f], method: :delete %>
+    <% end %>
     <hr class="is-caffe">
   <% end %>
 </ul>
